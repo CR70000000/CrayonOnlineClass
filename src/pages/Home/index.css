@@ -1,0 +1,175 @@
+.banner {
+  height: 400px;
+  position: relative;
+  min-width: 1200px
+}
+
+.banner-carousel {
+  overflow: hidden;
+}
+
+.banner-img {
+  width: 100%;
+  height: 400px;
+  object-fit: cover;
+  object-position: center;
+}
+
+.banner-container {
+  position: absolute;
+  width: 1200px;
+  height: 400px;
+  display: flex;
+  flex-direction: row;
+  position: absolute;
+  padding: 0 10px;
+  left: 0;
+  right: 0;
+  top: 0;
+  margin: auto;
+}
+
+.banner .banner-left {
+  height: 400px;
+  width: 400px
+}
+
+.banner .left-title {
+  margin-top: 20px;
+  margin-bottom: 20px;
+  font-size: 24px;
+  color: #fff
+}
+
+.banner .left-intro {
+  font-size: 18px;
+  margin-bottom: 15px;
+  color: #06e9e6;
+  font-weight: 700
+}
+
+.banner .left-info {
+  font-size: 14px;
+  line-height: 20px;
+  margin-bottom: 10px;
+  color: #fff
+}
+
+.banner .qr-info {
+  background-color: #2d2249;
+  padding: 5px;
+  display: flex;
+  flex-direction: row
+}
+
+.banner .qr {
+  width: 80px;
+  height: 80px
+}
+
+.banner .qr-text {
+  font-size: 14px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  margin-left: 20px
+}
+
+.banner .qr-text p {
+  margin: 0;
+  color: #fff
+}
+
+.banner .summary-list {
+  margin-top: 30px;
+  justify-content: space-between
+}
+
+.banner .summary-item,.banner .summary-list {
+  display: flex;
+  flex-direction: row;
+  align-items: center
+}
+
+.banner .summary-item a {
+  color: #fff;
+  font-size: 12px
+}
+
+.banner .summary-logo {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 10px
+}
+
+.banner .summary-logo .iconfont {
+  font-size: 12px
+}
+
+.banner .summary-bg01 {
+  background-color: #319b90;
+  color: #fff
+}
+
+.banner .summary-bg02 {
+  background-color: #c8764c;
+  color: #fff
+}
+
+.banner .summary-bg03 {
+  background-color: #32accc;
+  color: #fff
+}
+
+.banner .summary-text01 {
+  color: #319b90
+}
+
+.banner .summary-text02 {
+  color: #c8764c
+}
+
+.banner .summary-text03 {
+  color: #32accc
+}
+
+/* section */
+.section {
+  width: 1200px;
+  margin: 10px auto;
+  padding: 20px
+}
+
+.section .title {
+  margin: 20px 0
+}
+
+.section .title .text {
+  font-size: 20px;
+  font-weight: 700;
+  margin-right: 10px
+}
+
+.section .title .text-en {
+  font-size: 12px;
+}
+
+.section .card {
+  padding: 10px;
+}
+
+.section .course-row {
+  display: flex;
+  justify-content: space-around; /* 确保课程间距均匀 */
+  flex-wrap: wrap; /* 允许多行显示 */
+}
+
+.section .course-row .course-item {
+  flex: 0 1 18%; /* 每个课程占行宽的18%，一行总共五个 */
+  margin: 10px; /* 可调整边距以满足设计需求 */
+}

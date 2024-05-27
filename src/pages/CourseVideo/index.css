@@ -1,0 +1,30 @@
+.container {
+  width: 1200px;
+  margin: 0 auto;
+}
+.container .video-title-container {
+  background: url(/src/assets/bg-5.7b68227b.jpg) no-repeat;
+  margin-bottom: 20px;
+  border-radius: 5px;
+  overflow: hidden;
+  position: relative;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+.container .video-title-container .video-title {
+  display: block;
+  text-shadow: 5px 5px 5px rgba(0, 0, 100, 0.9);
+  color: #fff;
+  font-size: 30px;
+  font-weight: 800;
+  padding: 20px;
+}
+.container .video-main {
+  display: flex;
+  border-radius: 10px;
+}
+.container .comments-container {
+  margin-top: 20px;
+  border-radius: 10px;
+  padding: 40px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}

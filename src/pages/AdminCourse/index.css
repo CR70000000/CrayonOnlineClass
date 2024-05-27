@@ -1,0 +1,6 @@
+.ellipsis-text {
+  max-width: 100px; /* 限制宽度，根据需要调整 */
+  overflow: hidden; /* 隐藏溢出的文本 */
+  text-overflow: ellipsis; /* 使用省略号表示被截断的文本 */
+  white-space: nowrap; /* 确保文本在一行内显示，不换行 */
+}

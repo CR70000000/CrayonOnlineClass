@@ -1,0 +1,172 @@
+.user-info-container{
+  height: 148px
+}
+
+.user-info-container .user-info{
+  background: url(/src/assets/user-bg.08343fb6.jpg);
+  width: 1200px;
+  height: 148px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-radius: 4px
+}
+
+.user-info-container .user-info .left{
+  display: flex;
+  align-items: center;
+  color: #fff;
+  padding-left: 20px
+}
+
+.user-info-container .user-info .left .text{
+  font-size: 20px;
+  font-weight: 700;
+  margin-left: 20px
+}
+
+.user-info-container .user-info .left .text .sub-text{
+  font-size: 12px;
+  font-weight: 400;
+  margin-top: 10px
+}
+
+.user-info-container .user-info .right{
+  width: 500px;
+  color: #fff
+}
+
+.user-info-container .user-info .right span{
+  color: red
+}
+
+.user-info-container .user-info .right p{
+  margin: 5px
+}
+
+.main{
+  width: 1200px;
+  margin: 10px auto;
+  display: flex
+}
+
+.main .left{
+  width: 240px;
+  height: 400px;
+  overflow: auto
+}
+
+.main .right{
+  flex: 1;
+  margin-left: 20px
+}
+
+/* 用户信息 */
+.user-info .item {
+  display: flex;
+  height: 60px;
+  border-bottom: 1px solid #efeff5
+}
+
+.user-info .item-left,.user-info .item-right {
+  display: flex;
+  height: 60px;
+  align-items: center
+}
+
+.user-info .item-left {
+  width: 150px
+}
+
+.user-info .item-right {
+  justify-content: space-between;
+  flex: 1
+}
+
+.user-info .item-right .edit {
+  display: inline-block;
+  padding: 6px 12px;
+  color: #18a058;
+  font-size: 12px
+}
+
+.user-info .item-right .edit:hover {
+  background-color: #18a058;
+  color: #fff;
+  border-radius: 3px
+}
+
+.setting .item {
+  display: flex;
+  height: 60px;
+  border-bottom: 1px solid #efeff5;
+  align-items: center;
+  margin-bottom: 20px
+}
+
+.setting .sub-info {
+  font-size: 12px;
+  margin-top: 10px
+}
+
+.setting .item-right {
+  font-size: 12px;
+  color: #18a058;
+  text-align: right;
+  flex: 1
+}
+
+.setting .item-right span {
+  display: inline-block;
+  padding: 6px 12px
+}
+
+.setting .item-right span:hover {
+  background-color: #18a058;
+  color: #fff;
+  border-radius: 3px
+}
+
+/* 用户课程 */
+.course-container li,.course-container ul {
+  padding: 0
+}
+
+.course-container .item {
+  list-style: none;
+  margin: 20px 0
+}
+
+.course-container .item a {
+  display: flex;
+  text-decoration: none;
+  color: black;
+}
+
+.course-container .item p {
+  margin: 15px 0
+}
+
+.course-container .item .thumb {
+  width: 200px;
+  height: 116px;
+  display: flex;
+  align-items: center
+}
+
+.course-container .item .thumb img {
+  width: 200px;
+  height: 110px;
+  border-radius: 4px
+}
+
+.course-container .item .info {
+  border-bottom: 1px solid #efeff5;
+  flex: 1;
+  margin-left: 20px
+}
+
+.course-container .item .info .info-title {
+  font-size: 20px
+}

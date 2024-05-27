@@ -1,0 +1,48 @@
+.foot-wrap {
+  width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+}
+
+.logo {
+  position: relative;
+  width: 100px;
+}
+
+.logo img {
+  width: 32px;
+  height: 32px;
+}
+
+.logo a {
+  position: absolute;
+  font-size: 20px;
+  width: 80px;
+  top: 2px;
+  left: 40px;
+}
+
+.foot-info {
+  padding: 30px 20px 20px 50px;
+}
+
+.nav-list {
+  margin-bottom: 10px;
+}
+
+.nav-list-item {
+  margin-right: 25px;
+  padding-right: 25px;
+  border-right: 1px solid #dfdfdf;
+  font-size: 14px;
+}
+
+.nav-list-item:last-child {
+  border: none;
+}
+
+.nav-list a:hover {
+  color: red;
+  transition: all 0.3s;
+}

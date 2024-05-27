@@ -1,0 +1,99 @@
+.nav {
+  width: 1200px;
+  height: 50px;
+  margin: 0 auto;
+}
+
+.nav .logo {
+  display: flex;
+  align-items: center;
+  height: 50px
+}
+
+.nav .logo img {
+  height: 30px;
+  width: 30px;
+  margin-right: 6px;
+  margin-left: 6px
+}
+
+.nav .logo a {
+  color: #000;
+  font-weight: 500
+}
+
+.nav .logo a:hover {
+  color: #d03050
+}
+
+.nav .menu {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  height: 50px;
+  margin: 0
+}
+
+.nav .menu li {
+  list-style: none;
+  margin: 0 20px
+}
+
+.nav .menu-item {
+  position: relative;
+  padding: 2px 8px
+}
+
+.nav .menu-item a {
+  color: #000;
+  display: flex;
+  padding-bottom: 10px;
+  font-size: 14px
+}
+
+.nav .menu-item:after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 2px;
+  background-color: #e15671;
+  transform: scaleX(.1);
+  opacity: 0;
+  z-index: -1;
+  transition: all .3s
+}
+
+.nav .menu-item .user-profile {
+  display: flex;
+  align-items: center
+}
+
+.nav .menu-item .user-profile .user-name {
+  margin-left: 10px
+}
+
+.nav .menu-item:hover,.nav .router-link-active,.nav .router-link-exact-active {
+  color: #e15671!important
+}
+
+.nav .menu-item:hover:after,.nav .router-link-active:after,.nav .router-link-exact-active:after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 2px;
+  background-color: #e15671;
+  transform: scaleX(.1);
+  opacity: 0;
+  z-index: -1;
+  transition: all .3s
+}
+
+.nav .menu-item:hover:after,.nav .router-link-exact-active:after {
+  transform: scale(1);
+  opacity: 1;
+  transition: all .3s
+}
