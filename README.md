@@ -24,3 +24,20 @@ CrayonOnlineClass 是一个专为PC用户设计的在线学习平台，使用Rea
    ```bash
    npm start
    ```
+## 部分页面展示
+
+### 首页
+![image](https://github.com/CR70000000/CrayonOnlineClass/assets/94945752/25aeca46-9f8c-4976-a407-d6b0f8546029)
+
+### 登录
+![image](https://github.com/CR70000000/CrayonOnlineClass/assets/94945752/72e25cd6-7d91-498b-9da7-2cc9c0def5ca)
+
+### 课程页
+![image](https://github.com/CR70000000/CrayonOnlineClass/assets/94945752/692f425a-5b0d-4967-ac19-87d68c6d2781)
+
+### 学习路线页
+![image](https://github.com/CR70000000/CrayonOnlineClass/assets/94945752/15646e34-b455-405a-864a-f366a78e6b0a)
+
+### 个人课程
+![image](https://github.com/CR70000000/CrayonOnlineClass/assets/94945752/9c0022fa-9dee-4c4d-a022-76c174c00d64)
+
