@@ -1,6 +1,7 @@
 // axios的封装处理
 import axios from 'axios'
 import { getToken } from './token'
+import { message } from 'antd'
 
 const request = axios.create({
   baseURL: 'http://localhost:8080',
@@ -28,12 +29,26 @@ request.interceptors.request.use(
 // 添加响应拦截器
 // 在响应返回到客户端之前 做拦截 重点处理返回的数据
 request.interceptors.response.use(
-  (response) => {
-    // 2xx 范围内的状态码都会触发该函数。
-    // 对响应数据做点什么
-    return response
-  },
+  (response) => response,
   (error) => {
+    if (!error.response) {
+      // 网络错误或服务器无响应
+      message.error('服务器无响应. 稍后再试.')
+    } else {
+      // 根据不同的状态码进行处理
+      switch (error.response.status) {
+        case 500:
+          message.error('服务器无响应. 稍后再试.')
+          break
+        case 401:
+          message.error('未登录. 请重新登录.')
+          // 可以重定向到登录页面
+          break
+        // 更多错误处理
+        default:
+          message.error('错误.')
+      }
+    }
     return Promise.reject(error)
   },
 )

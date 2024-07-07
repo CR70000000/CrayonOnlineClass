@@ -1,6 +1,6 @@
 // 存储学习路线信息的状态
 import { createSlice } from '@reduxjs/toolkit'
-import { request } from '@/utils'
+import { learnpathListAPI, subLearnpathChildListAllAPI, subLearnpathListByIdAPI } from '@/api/learnpath'
 
 const learnpathStore = createSlice({
   name: 'learnpath',
@@ -38,7 +38,7 @@ const learnpathReducer = learnpathStore.reducer
 // 获取全部学习路线
 const fetchlearnpathList = () => {
   return async (dispath) => {
-    const res = await request.get('/api/learnpath/list')
+    const res = await learnpathListAPI()
     dispath(setLearnpathList(res.data.data))
     return res
   }
@@ -47,10 +47,9 @@ const fetchlearnpathList = () => {
 // 根据id获取二级路线数据
 const fetchSubLearnpathListById = (id) => {
   return async (dispath) => {
-    const res = await request.get(`/api/learnpath/sublist/${id}`)
+    const res = await subLearnpathListByIdAPI(id)
     dispath(setSubLearnpathList(res.data.data))
     dispath(setCourseStudyRoadParent(res.data.parentRoute))
-    console.log(res)
     return res
   }
 }
@@ -58,7 +57,7 @@ const fetchSubLearnpathListById = (id) => {
 // 获取全部二级路线数据
 const fetchSubLearnpathChildListAll = () => {
   return async (dispath) => {
-    const res = await request.get('/learnpath/child/list')
+    const res = await subLearnpathChildListAllAPI()
     dispath(setSubLearnpathListAll(res.data.data))
     return res
   }

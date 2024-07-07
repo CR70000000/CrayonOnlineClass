@@ -21,10 +21,11 @@ import {
   fetchUpdateCourse,
 } from '@/store/modules/course'
 import { fetchSubLearnpathChildListAll } from '@/store/modules/learnpath'
+import UserAuthorization from '@/components/UserAuthorization'
 
 const { Search } = Input
 
-export default function Course() {
+function Courses() {
   const dispatch = useDispatch()
   // 获取token
   const token = useSelector((state) => state.user.token)
@@ -410,3 +411,7 @@ export default function Course() {
     </>
   )
 }
+
+const Course = UserAuthorization(Courses)
+
+export default Course

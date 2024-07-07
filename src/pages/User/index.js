@@ -5,6 +5,7 @@ import UserCourse from './UserCourse'
 import UserRecord from './UserRecord'
 import { useSelector } from 'react-redux'
 import UserInfo from './UserInfo'
+import UserAuthorization from '@/components/UserAuthorization'
 function getItem(label, key) {
   return {
     key,
@@ -24,7 +25,7 @@ const contentList = {
   info: <UserInfo />,
 }
 
-export default function User() {
+function Users() {
   // 获取用户信息
   const userInfo = useSelector((state) => state.user.userInfo)
   const [activeTab, setActiveTab] = useState('course')
@@ -75,3 +76,7 @@ export default function User() {
     </div>
   )
 }
+
+const User = UserAuthorization(Users)
+
+export default User

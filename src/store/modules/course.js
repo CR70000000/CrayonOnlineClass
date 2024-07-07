@@ -1,6 +1,20 @@
 // 存储课程信息的状态
 import { createSlice } from '@reduxjs/toolkit'
-import { request } from '@/utils'
+import {
+  courseCatalogVideoListByCatalogIdAPI,
+  courseCategoryListAPI,
+  courseCatalogListByCourseIdAPI,
+  courseDetailByIdAPI,
+  courseListAPI,
+  courseCommentListByCourseIdAPI,
+  deleteCommentAPI,
+  deleteCourseByCourseIdAPI,
+  addCourseAPI,
+  updateCourseAPI,
+  deleteCourseCategoryByIdAPI,
+  updateCourseCategoryByIdAPI,
+  addCommentAPI
+} from '@/api/course'
 
 const courseStore = createSlice({
   name: 'course',
@@ -61,7 +75,7 @@ const courseReducer = courseStore.reducer
 // 获取全部课程列表
 const fetchCourseList = () => {
   return async (dispath) => {
-    const res = await request.get('/api/courses/list')
+    const res = await courseListAPI()
     dispath(setCourseList(res.data.data))
     return res
   }
@@ -70,7 +84,7 @@ const fetchCourseList = () => {
 // 获取课程分类列表
 const fetchCourseCategoryList = () => {
   return async (dispath) => {
-    const res = await request.get('/api/courses/category')
+    const res = await courseCategoryListAPI()
     dispath(setCourseCategoryList(res.data.data))
     return res
   }
@@ -79,7 +93,7 @@ const fetchCourseCategoryList = () => {
 // 根据ID获取课程详细
 const fetchCourseDetailById = (id) => {
   return async (dispath) => {
-    const res = await request.get(`/api/courses/detail/${id}`)
+    const res = await courseDetailByIdAPI(id)
     dispath(setCourseDetail(res.data.data))
     return res
   }
@@ -88,7 +102,7 @@ const fetchCourseDetailById = (id) => {
 // 根据课程ID获取课程目录列表
 const fetchCourseCatalogListByCourseId = (courseid) => {
   return async (dispath) => {
-    const res = await request.get(`/course/catalog/list/${courseid}`)
+    const res = await courseCatalogListByCourseIdAPI(courseid)
     dispath(setCourseCatalogList(res.data.data))
     return res
   }
@@ -97,7 +111,7 @@ const fetchCourseCatalogListByCourseId = (courseid) => {
 // 根据父目录ID获取子目录信息和视频
 const fetchCourseCatalogVideoListByCatalogId = (catalogid) => {
   return async (dispath) => {
-    const res = await request.get(`/course/catalog/child/${catalogid}`)
+    const res = await courseCatalogVideoListByCatalogIdAPI(catalogid)
     dispath(setCourseCatalogVideoList(res.data.data))
     return res
   }
@@ -106,7 +120,7 @@ const fetchCourseCatalogVideoListByCatalogId = (catalogid) => {
 // 根据课程ID获取课程评论列表
 const fetchCourseCommentListByCourseId = (courseid) => {
   return async (dispatch) => {
-    const res = await request.get(`/comment/list/${courseid}`)
+    const res = await courseCommentListByCourseIdAPI(courseid)
     if (res.data.code !== 200) {
       return
     }
@@ -122,7 +136,7 @@ const fetchCourseCommentListByCourseId = (courseid) => {
 // 添加课程评论
 const fetchAddComment = (comment) => {
   return async (dispath) => {
-    const res = await request.post('/comment/add', comment)
+    const res = await addCommentAPI(comment)
     return res
   }
 }
@@ -130,7 +144,7 @@ const fetchAddComment = (comment) => {
 // 根据用户ID删除课程评论
 const fetchDeleteComment = (commentid) => {
   return async (dispath) => {
-    const res = await request.delete(`/comment/delete/${commentid}`)
+    const res = await deleteCommentAPI(commentid)
     return res
   }
 }
@@ -138,7 +152,7 @@ const fetchDeleteComment = (commentid) => {
 // 根据课程ID删除课程信息
 const fetchDeleteCourseByCourseId = (courseid) => {
   return async (dispath) => {
-    const res = await request.delete(`/course/delete/${courseid}`)
+    const res = await deleteCourseByCourseIdAPI(courseid)
     return res
   }
 }
@@ -146,7 +160,7 @@ const fetchDeleteCourseByCourseId = (courseid) => {
 // 添加课程
 const fetchAddCourse = (course) => {
   return async (dispath) => {
-    const res = await request.post('/course/add', course)
+    const res = await addCourseAPI(course)
     return res
   }
 }
@@ -154,7 +168,7 @@ const fetchAddCourse = (course) => {
 // 更新课程信息
 const fetchUpdateCourse = (course) => {
   return async (dispath) => {
-    const res = await request.post('/course/update', course)
+    const res = await updateCourseAPI(course)
     return res
   }
 }
@@ -162,7 +176,7 @@ const fetchUpdateCourse = (course) => {
 // 根据课程分类ID删除课程分类
 const fetchDeleteCourseCategoryById = (categoryid) => {
   return async (dispath) => {
-    const res = await request.delete(`/course/category/${categoryid}`)
+    const res = await deleteCourseCategoryByIdAPI(categoryid)
     return res
   }
 }
@@ -170,7 +184,7 @@ const fetchDeleteCourseCategoryById = (categoryid) => {
 // 根据课程分类ID更新课程分类
 const fetchUpdateCourseCategoryById = (categoryid, category) => {
   return async (dispath) => {
-    const res = await request.patch(`/course/category/update/${categoryid}`, category)
+    const res = await updateCourseCategoryByIdAPI(categoryid, category)
     return res
   }
 }

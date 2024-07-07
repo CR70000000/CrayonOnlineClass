@@ -20,9 +20,10 @@ import {
   fetchGetAllUser,
   fetchUpdateUser,
 } from '@/store/modules/user'
+import UserAuthorization from '@/components/UserAuthorization'
 const { Search } = Input
 
-export default function Course() {
+function Courses() {
   const dispatch = useDispatch()
   const token = useSelector((state) => state.user.token)
   const formRef = useRef(null)
@@ -334,3 +335,7 @@ export default function Course() {
     </>
   )
 }
+
+const Course = UserAuthorization(Courses)
+
+export default Course

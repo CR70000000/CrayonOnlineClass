@@ -7,8 +7,9 @@ import {
   fetchDeleteCourseCategoryById,
   fetchUpdateCourseCategoryById,
 } from '@/store/modules/course'
+import UserAuthorization from '@/components/UserAuthorization'
 
-export default function AdminCourseCategory() {
+function AdminCourseCategorys() {
   const dispatch = useDispatch()
   const formRef = useRef(null)
   // 存储分类列表
@@ -186,3 +187,7 @@ export default function AdminCourseCategory() {
     </>
   )
 }
+
+const AdminCourseCategory = UserAuthorization(AdminCourseCategorys)
+
+export default AdminCourseCategory

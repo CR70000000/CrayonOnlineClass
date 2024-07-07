@@ -15,10 +15,11 @@ import {
 } from 'antd'
 import axios from 'axios'
 import { getStaticUrl } from '@/utils/picUrl'
+import UserAuthorization from '@/components/UserAuthorization'
 
 const { Search } = Input
 
-export default function Course() {
+function Courses() {
   // 使用状态来存储列表数据
   const [routesList, setRoutesList] = useState([])
   const [parentList, setParentList] = useState([])
@@ -274,3 +275,7 @@ export default function Course() {
     </>
   )
 }
+
+const Course = UserAuthorization(Courses)
+
+export default Course

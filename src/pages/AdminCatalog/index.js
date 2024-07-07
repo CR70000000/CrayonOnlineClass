@@ -1,10 +1,11 @@
 import React, { useEffect, useState } from 'react'
 import { Button, Table, Modal, Form, Input, Select, message, Space } from 'antd'
 import axios from 'axios'
+import UserAuthorization from '@/components/UserAuthorization'
 
 const { Search } = Input
 
-export default function Course() {
+function Courses() {
   // 路径列表的状态
   const [routesList, setRoutesList] = useState([])
   // 当前编辑中的路径对象的状态
@@ -146,7 +147,6 @@ export default function Course() {
         placeholder='输入想要搜索的章节'
         allowClear
         style={{ width: 200, marginLeft: '20px' }}
-        // onSearch={(value) => setSearchText(value)}
       />
       <Table
         dataSource={routesList}
@@ -197,3 +197,7 @@ export default function Course() {
     </>
   )
 }
+
+const Course = UserAuthorization(Courses)
+
+export default Course

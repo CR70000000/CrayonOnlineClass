@@ -2,10 +2,11 @@ import React, { useEffect, useState } from 'react'
 import './index.css'
 import { Button, Input, Form, Modal, Space, Table, message, Select } from 'antd'
 import axios from 'axios'
+import UserAuthorization from '@/components/UserAuthorization'
 
 const { Search } = Input
 
-export default function Course() {
+function Courses() {
   // 存储路线列表
   const [routesList, setRoutesList] = useState([])
   // 存储父级路线列表
@@ -217,3 +218,7 @@ export default function Course() {
     </>
   )
 }
+
+const Course = UserAuthorization(Courses)
+
+export default Course

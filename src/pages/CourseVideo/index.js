@@ -11,6 +11,8 @@ import {
   fetchCourseCatalogListByCourseId,
   fetchCourseCatalogVideoListByCatalogId,
 } from '@/store/modules/course'
+import UserAuthorization from '@/components/UserAuthorization'
+
 
 // 递归构造目录，保证每个key是唯一的
 function constructMenu(chapters, prefix = '') {
@@ -32,7 +34,7 @@ function constructMenu(chapters, prefix = '') {
   })
 }
 
-export default function CourseVideo() {
+function CourseVideos() {
   const navigate = useNavigate()
   const dispatch = useDispatch()
   const { id } = useParams()
@@ -105,3 +107,7 @@ export default function CourseVideo() {
     </div>
   )
 }
+
+const CourseVideo = UserAuthorization(CourseVideos)
+
+export default CourseVideo

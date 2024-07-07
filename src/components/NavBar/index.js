@@ -46,7 +46,6 @@ export default function NavBar() {
 
   // 处理登录或注册表单提交
   const onFinish = async (values, type) => {
-    console.log(values)
     if (type === 'login') {
       try {
         const res = await dispatch(fetchLogin(values))

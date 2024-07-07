@@ -1,6 +1,16 @@
 // 存储登录注册模态框的状态
 import { createSlice } from '@reduxjs/toolkit'
-import { setToken as _setToken, getToken, removeToken, request } from '@/utils'
+import { setToken as _setToken, getToken, removeToken } from '@/utils'
+import {
+  addUserAPI,
+  deleteUserAPI,
+  getAllUserAPI,
+  loginAPI,
+  registerAPI,
+  updateUserAPI,
+  updateUserInfoAPI,
+  userInfoAPI,
+} from '@/api/user'
 
 const userStore = createSlice({
   name: 'user',
@@ -36,7 +46,7 @@ const userReducer = userStore.reducer
 // 登录
 const fetchLogin = (loginForm) => {
   return async (dispath) => {
-    const res = await request.post('/api/login', loginForm)
+    const res = await loginAPI(loginForm)
     dispath(setToken(res.data.token))
     return res
   }
@@ -45,25 +55,25 @@ const fetchLogin = (loginForm) => {
 // 注册
 const fetchRegister = (registerForm) => {
   return async () => {
-    const res = await request.post('/api/register', registerForm)
+    const res = await registerAPI(registerForm)
     return res
   }
 }
 
 // 获取用户信息
 const fetchUserInfo = () => {
-  return async (dispath) => {
-    const res = await request.get('/users/myinfo')
-    dispath(setUserInfo(res.data.user))
+  return async (dispatch) => {
+    const res = await userInfoAPI()
+    dispatch(setUserInfo(res.data.user))
     return res
   }
 }
 
 // 修改用户信息
 const fetchUpdateUserInfo = (userInfo) => {
-  return async (dispath) => {
-    const res = await request.patch('/users/myinfo', userInfo)
-    dispath(setUserInfo(res.data.userInfo))
+  return async (dispatch) => {
+    const res = await updateUserInfoAPI(userInfo)
+    dispatch(setUserInfo(res.data.userInfo))
     return res
   }
 }
@@ -71,7 +81,7 @@ const fetchUpdateUserInfo = (userInfo) => {
 // 获取全部用户列表
 const fetchGetAllUser = () => {
   return async () => {
-    const res = await request.get('/users/list')
+    const res = await getAllUserAPI()
     return res
   }
 }
@@ -79,7 +89,7 @@ const fetchGetAllUser = () => {
 // 更改用户信息
 const fetchUpdateUser = (userid, userInfo) => {
   return async () => {
-    const res = await request.post(`/users/update/${userid}`, userInfo)
+    const res = await updateUserAPI(userid, userInfo)
     return res
   }
 }
@@ -87,7 +97,7 @@ const fetchUpdateUser = (userid, userInfo) => {
 // 添加用户
 const fetchAddUser = (userInfo) => {
   return async () => {
-    const res = await request.post('/users/add', userInfo)
+    const res = await addUserAPI(userInfo)
     return res
   }
 }
@@ -95,10 +105,11 @@ const fetchAddUser = (userInfo) => {
 // 删除用户
 const fetchDeleteUser = (userid) => {
   return async () => {
-    const res = await request.delete(`/users/del/${userid}`)
+    const res = await deleteUserAPI(userid)
     return res
   }
 }
+
 export {
   fetchLogin,
   fetchRegister,

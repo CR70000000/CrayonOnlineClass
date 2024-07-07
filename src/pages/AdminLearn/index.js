@@ -13,12 +13,13 @@ import {
 import { SketchPicker } from 'react-color' // 引入颜色选择器组件
 import './index.css'
 import axios from 'axios'
+import UserAuthorization from '@/components/UserAuthorization'
 
 const { Search } = Input
 
 const url = (endpoint) => `http://localhost:3001/${endpoint}`
 
-export default function Course() {
+function Courses() {
   const [routesList, setRoutesList] = useState([]) // 存储学习路线列表
   const [editingRoute, setEditingRoute] = useState({ id: undefined }) // 当前正在编辑的学习路线
   const [id, setId] = useState(null) // 编辑的学习路线ID
@@ -228,3 +229,7 @@ export default function Course() {
     </>
   )
 }
+
+const Course = UserAuthorization(Courses)
+
+export default Course

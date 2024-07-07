@@ -1,6 +1,13 @@
 // 存储学习路线信息的状态
 import { createSlice } from '@reduxjs/toolkit'
-import { request } from '@/utils'
+import {
+  addOrRemoveCourseAPI,
+  addRecordAPI,
+  checkCourseAPI,
+  deleteRecordAPI,
+  userCourseListAPI,
+  userRecordListAPI,
+} from '@/api/record'
 
 const recordStore = createSlice({
   name: 'record',
@@ -28,7 +35,7 @@ const recordReducer = recordStore.reducer
 // 判断课程是否加入
 const fetchCheckCourse = (courseid) => {
   return async (dispatch) => {
-    const res = await request.get(`/record/course/check/${courseid}`)
+    const res = await checkCourseAPI(courseid)
     return res
   }
 }
@@ -36,7 +43,7 @@ const fetchCheckCourse = (courseid) => {
 // 添加或移除课程
 const fetchAddOrRemoveCourse = (courseid) => {
   return async (dispatch) => {
-    const res = await request.get(`/record/course/addorremove/${courseid}`)
+    const res = await addOrRemoveCourseAPI(courseid)
     return res
   }
 }
@@ -44,7 +51,7 @@ const fetchAddOrRemoveCourse = (courseid) => {
 // 增加学习记录
 const fetchAddRecord = (recordList) => {
   return async (dispatch) => {
-    const res = await request.post('/record/record/add', recordList)
+    const res = await addRecordAPI(recordList)
     return res
   }
 }
@@ -52,7 +59,7 @@ const fetchAddRecord = (recordList) => {
 // 删除学习记录
 const fetchDeleteRecord = (recordid) => {
   return async (dispatch) => {
-    const res = await request.delete(`/record/record/delete/${recordid}`)
+    const res = await deleteRecordAPI(recordid)
     return res
   }
 }
@@ -60,7 +67,7 @@ const fetchDeleteRecord = (recordid) => {
 // 获取用户的课程列表
 const fetchUserCourseList = () => {
   return async (dispatch) => {
-    const res = await request.get('/record/course/list')
+    const res = await userCourseListAPI()
     dispatch(setUserCourseList(res.data.data))
     return res
   }
@@ -69,7 +76,7 @@ const fetchUserCourseList = () => {
 // 获取用户的学习记录列表
 const fetchUserRecordList = () => {
   return async (dispatch) => {
-    const res = await request.get('/record/record/list')
+    const res = await userRecordListAPI()
     dispatch(setRecordList(res.data.data))
     return res
   }
