@@ -21,7 +21,7 @@ export const registerAPI = (registerForm) => {
 // 获取用户信息
 export const userInfoAPI = () => {
   return request({
-    url: '/user/myinfo',
+    url: '/users/myinfo',
     method: 'get',
   })
 }
